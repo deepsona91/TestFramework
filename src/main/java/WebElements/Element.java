@@ -1,6 +1,7 @@
 package WebElements;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import Driver.ChromeBrowser;
 
@@ -8,6 +9,7 @@ import Driver.ChromeBrowser;
 public class Element
 {
 	By _by;
+	ChromeDriver driver=ChromeBrowser.GetInstance();
 	public Element(By by)
 	{
 		this._by=by;
@@ -15,22 +17,28 @@ public class Element
 	
 	public void Click()
 	{
-		ChromeBrowser.DriverInstance.findElement(_by).click();
+		driver.findElement(_by).click();
 	}
 	
 	public void Clear()
 	{
-		ChromeBrowser.DriverInstance.findElement(_by).clear();
+		driver.findElement(_by).clear();
 	}
 	
 	public void SendKeys(String text)
 	{
-		ChromeBrowser.DriverInstance.findElement(_by).sendKeys(text);
+		driver.findElement(_by).sendKeys(text);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void Submit()
 	{
-		ChromeBrowser.DriverInstance.findElement(_by).submit();
+		driver.findElement(_by).submit();
 	}
 
 }

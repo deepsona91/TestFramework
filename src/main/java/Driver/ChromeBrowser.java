@@ -1,21 +1,26 @@
 package Driver;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ChromeBrowser
 {
+	private static ChromeDriver _instance=null;
 	
-	public static WebDriver DriverInstance= null;
 	
-	static
+	private ChromeBrowser()
 	{
-		if(DriverInstance==null)
+		
+	}
+	
+	public static ChromeDriver GetInstance()
+	{
+		if(_instance==null)
 		{
-	        System.setProperty("webdriver.chrome.driver", "C:/chromedriver.exe");
-	        DriverInstance =new ChromeDriver();
-	       
+			System.setProperty("webdriver.chrome.driver", "C:/chromedriver.exe");
+			_instance= new ChromeDriver();
 		}
+		
+		return _instance;
+			
 	}
 
 }

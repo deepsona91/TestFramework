@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import WebElements.Element;
 
-public class GoogleHomePage 
+public class GoogleHomePage extends BasePom
 
 {	
 	Element googleApps= new Element(By.xpath("//a[@title=\"Google apps\"]"));
