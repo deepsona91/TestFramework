@@ -7,18 +7,18 @@ import WebElements.Element;
 public class GoogleHomePage extends BasePom
 
 {	
-	Element googleApps= new Element(By.xpath("//a[@title=\"Google apps\"]"));
+	Element googleApps= new Element(By.xpath("//a[@aria-label='Google apps']"));
 	Element searchButton= new Element(By.xpath("(//input[@value='Google Search'])[2]"));	
-	Element searchBar=new Element(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
+	Element searchBar=new Element(By.xpath("//input[@aria-label='Search']"));
 	
 	public void Search(String searchtext)
 	{
-		searchBar.SendKeys(searchtext);
-		searchBar.Submit();
+		searchBar.sendKeys(searchtext);
+		searchBar.submit();
 	}
 	
 	public void ClickonAppsIcon()
 	{
-		googleApps.Click();
+		googleApps.click();
 	}
 }
